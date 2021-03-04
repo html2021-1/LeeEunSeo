@@ -1,0 +1,216 @@
+@charset "utf-8";
+/* tag reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style: none;
+}
+a:link, a:visited, a:hover, a:active{
+    text-decoration: none;
+    color: inherit;
+}
+
+/* #intro */
+#intro{
+    position: fixed;top: 0;left: 0;right: 0;bottom: 0;z-index: 1000;background: #f6f6f6;
+}
+.intro_txt,
+.intro_content,
+.main_content,
+#contact_menu,
+.content {
+    width: 100%;
+    height: 100vh;
+    background: #f6f6f6;
+    position: relative;
+    /* border: 1px solid #000; */
+}
+.intro_txt > div{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.intro_txt > div:nth-child(1){
+    display: block;
+}
+.content {
+    background: #000;
+    /* border: 1px solid #000; */
+}
+
+.intro_txt h1,
+.intro_txt h2,
+.intro_txt h3 {
+    font-family: "Fugaz One";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 130px;
+    color: #f6f6f6;
+    -webkit-text-stroke: 1.5px #0c0c0e;
+    font-weight: 400;
+    /* border: 1px solid #000; */
+}
+
+.intro_txt h3 {
+    color: #000;
+    -webkit-text-stroke: 1.5px #ffffff;
+    /* border: 1px solid #000; */
+}
+
+#follow{
+    position: absolute;
+    z-index: 1000;
+    font-size: 20px;
+}
+.intro_bg {
+    
+}
+.intro_bg > .bg{
+    width: 100%;
+    height: 100vh;
+    animation: box;
+    animation-duration: .7s;
+    background: #000;
+    
+}
+
+@keyframes box{
+    from{background: #000; width: 100%; height: 100vh;}
+    to{background: #000; width: 0%; height: 100vh;}
+}
+
+
+/* main contents */
+
+.main_content{
+    /* border: 1px solid #000; */
+    position: fixed;top: 0;left: -100%;right: 0;bottom: 0;background: #f6f6f6;z-index: 1000;
+}
+#projects{ transform-origin: 50vh 50vh;bottom: 20px;
+    transform: rotate(-90deg);
+    left: 100px;
+    display: inline-block;
+}
+#projects > ul > li > h4{
+    position: relative;
+    font-family: "Lexend Exa";
+    font-weight: 400;
+    font-size: 80px;
+}
+#projects > ul > li > h4 > a {
+    line-height: 150px;
+    color: transparent;
+    -webkit-text-stroke: 1.5px #222;
+    text-stroke: 1.5px #222;   /* #0c0c0e */
+}
+#projects  > ul > li > h4 > a:after {
+    content: attr(data-link);/* a data-link="여기에 텍스트" 가 없어서... */
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    color: #222222;
+    -webkit-text-stroke: 1.5px  currentColor;
+    text-stroke: 1.5px currentColor;
+    text-shadow: 0 0 1px currentColor;
+    animation: txt_view 1s cubic-bezier(.19, 1, .22, 1) forwards;
+  }
+#projects > ul > li > h4 > a:hover:after, #projects > ul > li > h4 > a:focus:after{
+    animation: txt_hide 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+/* 텍스트 보여지기 */
+@keyframes txt_view {
+    0% {
+        -webkit-clip-path: inset(0 0 0 0);
+        clip-path: inset(0 0 0 0);
+    }
+    100% {
+        -webkit-clip-path: inset(0 0 0 100%);
+        clip-path: inset(0 0 0 100%);
+    }
+}
+
+    /* 텍스트 사라지기 */
+    @keyframes txt_hide {
+    0% {
+        -webkit-clip-path: inset(0 100% 0 0);
+        clip-path: inset(0 100% 0 0);
+    }
+    100% {
+        -webkit-clip-path: inset(0 0 0 0);
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+/* main_content menu */
+
+#menu {
+    position: fixed;
+    top: 2vw;
+    right: 2vw;
+    cursor: pointer;
+    z-index: 3000;
+}
+
+.contact_title .title{
+    position: absolute;
+    font-family: "Fugaz One";
+    right: 1vw;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 20vh;
+    font-size: 17vw;
+    white-space: nowrap;
+    font-weight: 400;
+    line-height: 1;
+    text-align: right;
+    margin: 0;
+    color: #f6f6f6;
+    -webkit-text-stroke: 1.5px #7a7a7a;
+}
+#contact_menu .contact_links , #contact_menu .label{
+    position: absolute;
+    top: 2vw;
+    right: 2vw;
+    /* border: 1px solid #000; */
+}
+#contact_menu .label{
+    position: absolute;
+    left: 2vw;
+    top: 2vw;
+}
+#contact_menu .contact_links .link {
+    float: right;
+    display: block;
+    margin-left: 50px;
+    color:  #4b4b4b;
+    
+}
+#contact_menu .contact_intro{
+    position: absolute;
+    padding: 2vw 2vw;
+    bottom: 0;
+    
+}
+#contact_menu .contact_intro > p {
+    font-size: 15px;
+    color: rgb(114, 114, 114);
+    line-height: 30px;
+   
+}
+#contact_menu .contact_intro .fhl, #contact_menu .contact_intro .hl {
+    font-weight: 600;
+    
+}
+
+#contact_menu .contact_intro p{
+    /* line-height: 10px; */
+    
+}

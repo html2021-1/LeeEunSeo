@@ -31,7 +31,7 @@ $(document).ready(function () {
         $('body').css({cursor: 'default',color: '#fff'});
       });
     } else if (txt === 3) {
-      $('.main_content').animate({
+      $('.main_content').css('visibility', 'visible').animate({
         left: 0}, 600, function () {
         $('#intro').fadeOut(1000);  
       });
@@ -41,7 +41,6 @@ $(document).ready(function () {
     if (txt < 3) $('#intro #follow').text((txt + 1) + ' / ' + 3);
 
     txt++;
-
   };
 
   $('.preview video').eq(0).addClass('view');
@@ -52,19 +51,19 @@ $(document).ready(function () {
     },
     'click': function (e) {
       e.preventDefault();
-      $('.mask').stop().fadeIn(500, function () {
-        location.href = 'event.html';
+      var tghref = $(this).attr('href');
+      $('.main_content .mask').stop().fadeIn(500, function () {
+        location.href = tghref;
       });
     }
   });
-
   
-  $('.main_content > .click').on('click' ,function () {
-    $('.main_menu').animate({
-      left: 0}, 600, function () {
-     $('.main_content').fadeOut(1000);
-      
-    }); 
+  $('.main_content > .click a').on('click' ,function () {
+    $('.contact_mask').fadeIn(600, function () {
+      $(this).stop().fadeOut(600).next().css('visibility', 'visible').stop().animate({left: 0}, 600);
+    }).prev().css({visibility: 'hidden', left: '-100%'}); 
+    
+    return false;
   });
   
 

@@ -11,10 +11,15 @@ a:link, a:visited, a:hover, a:active{
     text-decoration: none;
     color: inherit;
 }
+#wrap{
+    position: relative;
+}
 
 /* #intro */
+
 #intro{
     position: fixed;top: 0;left: 0;right: 0;bottom: 0;z-index: 1000;background: #f6f6f6;
+    
 }
 .intro_txt,
 .intro_content,
@@ -64,17 +69,15 @@ a:link, a:visited, a:hover, a:active{
 
 #follow{
     position: absolute;
-    z-index: 1000;
+    z-index: 3000;
     font-size: 20px;
 }
-.intro_bg {
-    
-}
-.intro_bg > .bg{
+/* 
+.intro_bg > .i_bg{
     width: 100%;
     height: 100vh;
     animation: box;
-    animation-duration: .7s;
+    animation-duration: .9s;
     background: #000;
     
 }
@@ -82,18 +85,20 @@ a:link, a:visited, a:hover, a:active{
 @keyframes box{
     from{background: #000; width: 100%; height: 100vh;}
     to{background: #000; width: 0%; height: 100vh;}
-}
+} */
 
 
 /* main contents */
 
 .main_content{
-    /* border: 1px solid #000; */
     position: fixed;top: 0;left: -100%;right: 0;bottom: 0;background: #f6f6f6;z-index: 1000;
+    /* border: 1px solid #000; */
 }
-#projects{ transform-origin: 50vh 50vh;bottom: 20px;
+#projects{
+    transform-origin: 50vh 50vh;
+    bottom: 20px;
     transform: rotate(-90deg);
-    left: 100px;
+    left: 150px;
     display: inline-block;
 }
 #projects > ul > li > h4{
@@ -103,27 +108,25 @@ a:link, a:visited, a:hover, a:active{
     font-size: 80px;
 }
 #projects > ul > li > h4 > a {
-    line-height: 150px;
     color: transparent;
-    -webkit-text-stroke: 1.5px #222;
-    text-stroke: 1.5px #222;   /* #0c0c0e */
+    -webkit-text-stroke: 1.5px #0c0c0e;
+    line-height: 150px;   
 }
 #projects  > ul > li > h4 > a:after {
-    content: attr(data-link);/* a data-link="여기에 텍스트" 가 없어서... */
+    content: attr(data-link);
     position: absolute;
     top: 0;
     left: 0;
     overflow: hidden;
-    color: #222222;
+    color: rgb(34, 34, 34);
     -webkit-text-stroke: 1.5px  currentColor;
-    text-stroke: 1.5px currentColor;
+    text-stroke: 1px currentColor;
     text-shadow: 0 0 1px currentColor;
     animation: txt_view 1s cubic-bezier(.19, 1, .22, 1) forwards;
   }
 #projects > ul > li > h4 > a:hover:after, #projects > ul > li > h4 > a:focus:after{
     animation: txt_hide 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
 }
-/* 텍스트 보여지기 */
 @keyframes txt_view {
     0% {
         -webkit-clip-path: inset(0 0 0 0);
@@ -132,31 +135,77 @@ a:link, a:visited, a:hover, a:active{
     100% {
         -webkit-clip-path: inset(0 0 0 100%);
         clip-path: inset(0 0 0 100%);
-    }
+      }
 }
 
     /* 텍스트 사라지기 */
     @keyframes txt_hide {
-    0% {
+      0% {
         -webkit-clip-path: inset(0 100% 0 0);
         clip-path: inset(0 100% 0 0);
-    }
-    100% {
+      }
+
+      100% {
         -webkit-clip-path: inset(0 0 0 0);
         clip-path: inset(0 0 0 0);
-    }
+      }
 }
 
-/* main_content menu */
+/* main_content click */
 
-#menu {
-    position: fixed;
+.click {
+    position: absolute;
     top: 2vw;
-    right: 2vw;
+    right: 3vw;
     cursor: pointer;
     z-index: 3000;
 }
+.click .label{
+    color: #000;
+    display: block;
+    position: relative;
 
+}
+.click .label:before {
+    content: '⏤';
+    display: block;
+    width: 6vw;
+    height: 2vw;
+    left: -20px;
+    top: -1px;
+    position: absolute;
+    overflow: hidden;
+    color: rgb(34, 34, 34);
+    display: none;
+}
+.click .label:hover::before{
+    display: block;
+}
+.click .label:hover{
+    transform: translate(30%);
+    transition: 0.5s all;
+}
+
+
+
+/* preview */
+.main_content .preview{
+    position: absolute;
+    width: 50vw;
+    right: 0;
+    top: 20vh;
+}
+
+.main_content .preview video{
+    display: none;
+    width: 100%;
+}
+
+.view{
+    display: block !important;
+}
+
+/* About ME */
 .contact_title .title{
     position: absolute;
     font-family: "Fugaz One";

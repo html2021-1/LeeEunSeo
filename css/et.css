@@ -1,0 +1,66 @@
+@charset "utf-8";
+*{margin: 0;padding: 0;box-sizing: border-box;}
+ul{list-style: none;}
+img{vertical-align: top;}
+body{background: rgb(0, 0, 0);}
+
+#bg{
+    background: rgb(0, 0, 0);
+    width: 100%;
+    /* height: 100vh; */
+}
+#wrap #top_cnt{
+    height: 100vh;
+}
+#wrap h1{
+    position: fixed;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    text-align: center; 
+    -webkit-text-stroke: 1.5px #ffffff;
+    /* border: 1px solid #fff;  */
+    font-size: 15vw;
+    top: 27%;
+}
+#container{
+    overflow: hidden ;padding: 10vh 0;
+}
+.cnt{padding-left: 10%;}
+.cnt:nth-child(even){
+    /* border: 1px solid #fff;  */
+    text-align: right;
+    padding-right: 10%;
+}
+/* transition1) figure 태그 */
+.cnt figure{
+   opacity: 0; 
+   transition: all 1s;
+   transform: translateY(200px);
+}
+.cnt.fade figure{
+   opacity: 1; 
+   transform: translateY(0);
+}
+/* transition2) figure img 태그 */
+.cnt figure img{
+    transition: transform 1s;
+    transform: rotateX(-10deg) rotateY(-20deg) rotateZ(0deg);
+}
+.cnt.fade figure img:hover{
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+}
+/* .cnt figure img{
+    opacity: 0;
+    transition: all 1s;
+    transform: skew(0.06turn, 18deg) translate(0 , 200px) scale(0.7);
+    transition-delay: 0.5s;
+}
+.cnt:nth-child(even) figure img{
+    transform: skew(-0.06turn, 18deg) translate(0 , 200px) scale(0.7);
+}
+.cnt.fade figure img{
+    opacity: 1;
+    transform: skew(0, 0) translate(0, 0);
+} */

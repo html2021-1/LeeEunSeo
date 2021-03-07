@@ -1,5 +1,6 @@
 $(document).ready(function () { 
-
+    $('#bg').stop().fadeOut(1000);
+    $('#wrap').addClass('load');
 
     $(window).on('scroll' , function () {
         var scrollY = $(this).scrollTop() + $(this).height();

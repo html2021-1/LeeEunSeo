@@ -205,6 +205,11 @@ a:link, a:visited, a:hover, a:active{
     display: block !important;
 }
 
+/* mask loading */
+.mask{display: none;position: fixed;top: 0;left: 0;right: 0;bottom: 0;background: #000;}
+.mask div{display: flex;justify-content: center;align-items: center;width: 100%;height: 100vh;font-size: 100px;color: #000;
+    -webkit-text-stroke: 1.5px #ffffff;font-family: "Fugaz One";font-size: 130px;font-weight: 700;}
+
 /* About ME */
 .contact_title .title{
     position: absolute;

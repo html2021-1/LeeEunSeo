@@ -45,9 +45,17 @@ $(document).ready(function () {
   };
 
   $('.preview video').eq(0).addClass('view');
-  $('#projects > ul > li > h4 > a').on('mouseenter focus' , function () {
-    var idx = $(this).closest('li').index();
-    $('.preview video').eq(idx).addClass('view').siblings().removeClass('view');
+  $('#projects > ul > li > h4 > a').on({
+    'mouseenter focus': function () {
+      var idx = $(this).closest('li').index();
+      $('.preview video').eq(idx).addClass('view').siblings().removeClass('view');
+    },
+    'click': function (e) {
+      e.preventDefault();
+      $('.mask').stop().fadeIn(500, function () {
+        location.href = 'event.html';
+      });
+    }
   });
 
   

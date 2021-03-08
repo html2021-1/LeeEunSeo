@@ -52,6 +52,10 @@ $(document).ready(function () {
     'click': function (e) {
       e.preventDefault();
       var tghref = $(this).attr('href');
+      // detail과 poster에는 텍스트 보여지지 않게 하기
+      if ($(this).hasClass('notxt')) {
+        $('.main_content .mask div').hide();
+      }
       $('.main_content .mask').stop().fadeIn(500, function () {
         location.href = tghref;
       });

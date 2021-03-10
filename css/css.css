@@ -15,16 +15,17 @@ a:link, a:visited, a:hover, a:active{
     position: relative;
 }
 
-/* #intro */
+/* 공통 */
+.mainview{
+    position: fixed;top: 0;left: 0;width: 100%;height: 100vh;visibility: hidden;background: #f6f6f6;
+}
 
+/* #intro */
 #intro{
-    position: fixed;top: 0;left: 0;right: 0;bottom: 0;z-index: 1000;background: #f6f6f6;
-    
+    z-index: 1000;visibility: visible;
 }
 .intro_txt,
 .intro_content,
-.main_content,
-#contact_menu,
 .content {
     width: 100%;
     height: 100vh;
@@ -90,8 +91,8 @@ a:link, a:visited, a:hover, a:active{
 
 /* main contents */
 
-.main_content{
-    position: fixed;top: 0;left: -100%;right: 0;bottom: 0;background: #f6f6f6;z-index: 1000;
+#main_content{
+    left: -100%;z-index: 1000;
     /* border: 1px solid #000; */
 }
 #projects{
@@ -99,8 +100,6 @@ a:link, a:visited, a:hover, a:active{
     transform: rotate(-90deg);
     display: inline-block;
     /* border: 1px solid #444; */
-   
-    
 }
 #projects > ul > li > h4{
     position: relative;
@@ -161,6 +160,16 @@ a:link, a:visited, a:hover, a:active{
     cursor: pointer;
     z-index: 3000;
 }
+#backClick{
+    position: absolute;
+    width: 200px;
+    top: -0.5vw;
+    left: 1vw;
+    cursor: pointer;
+    z-index: 3000;
+    /* border: 1px solid #000; */
+}
+
 .click .label{
     color: #000;
     display: block;
@@ -190,14 +199,14 @@ a:link, a:visited, a:hover, a:active{
 
 
 /* preview */
-.main_content .preview{
+#main_content .preview{
     position: absolute;
     width: 50vw;
     right: 0;
     top: 20vh;
 }
 
-.main_content .preview video{
+#main_content .preview video{
     display: none;
     width: 100%;
 }
@@ -234,6 +243,9 @@ a:link, a:visited, a:hover, a:active{
 
 
 /* About ME */
+#contact_menu{
+    
+}
 .contact_title .title{
     position: absolute;
     font-family: "Fugaz One";

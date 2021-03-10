@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,7 +16,7 @@
 
 <body>
     <div id="wrap">
-        <div id="intro">
+        <div id="intro" class="mainview">
             <div class="intro_txt">
                 <div class="intro_content">
                     <h1 class="title">Portfolio</h1>
@@ -32,7 +31,7 @@
             <div id="follow">1/3</div>
         </div>
 
-        <div class="main_content">
+        <div id="main_content" class="mainview">
             <!-- About me -->
             <div class="click">
                 <a href="#contact_menu"><span class="label">About Me</span></a>
@@ -52,12 +51,12 @@
                     </li>
                     <li>
                         <h4>
-                            <a href="" class="notxt" data-link="POSTER">POSTER</a>
+                            <a href="poster.html" class="notxt" data-link="POSTER">POSTER</a>
                         </h4>
                     </li>
                     <li>
                         <h4>
-                            <a href="" data-link="BANNER">BANNER</a>
+                            <a href="banner.html" data-link="BANNER">BANNER</a>
                         </h4>
                     </li>
 
@@ -82,21 +81,22 @@
                 </video>
             </figure>
             <div class="mask">
-                <div>Footage</div>
+                <div>show</div>
             </div>
         </div>
 
         <!-- About me 클릭 후 자기 소개-->
         <div class="contact_mask"></div>
-        <div id="contact_menu">
+        <div id="contact_menu" class="mainview">
             <div class="contact_title">
                 <h4 class="title"><span>Let me</span>
                     <span>know</span>
                 </h4>
             </div>
 
-            <div>
-                <span class="label">To Projects</span>
+
+            <div class="click" id="backClick">
+                <a href="#main_content"><span class="label">To Projects</span></a>
             </div>
 
             <div class="contact_intro">
@@ -110,10 +110,10 @@
             </div>
             <div class="contact_links">
                 <span class="link">
-                    <a href=""><span>Mail</span></a>
+                    <a href="mailto:dlwltn1283@naver.com"><span>Mail</span></a>
                 </span>
                 <span class="link">
-                    <a href=""><span>Resume</span></a>
+                    <a href="웹분야 입사지원서.pdf"><span>Resume</span></a>
                 </span>
             </div>
 

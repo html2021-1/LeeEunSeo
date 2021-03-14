@@ -37,7 +37,8 @@ $(document).ready(function () {
       
     }
 
-    var timer = senInterval(playSlider, 3000);
+    // timer 변수가 위에 존재해서 timer2로 변수명 변경, senInterval() 메서드 오타
+    var timer2 = setInterval(playSlider, 3000);
 
     function playSlider(){
       console.log(current);
@@ -48,18 +49,18 @@ $(document).ready(function () {
 
     $('.slider').on({
       mouseenter: function () {
-        clearInterval(timer);
+        clearInterval(timer2);
       },
       mouseleave: function () {
-        timer = setInterval(playSlider , 3000);
+        timer2 = setInterval(playSlider , 3000);
       }
     });
     $('.sliderControl').on({
       mouseenter: function () {
-        clearInterval(timer);
+        clearInterval(timer2);
       },
       mouseleave: function () {
-        timer = setInterval(playSlider , 3000);
+        timer2 = setInterval(playSlider , 3000);
       }
     });
 

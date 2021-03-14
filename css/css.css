@@ -91,12 +91,26 @@ a:link, a:visited, a:hover, a:active{
 
 /* main contents */
 
+/* 상세 서브페이지에서 프로젝트 리스트로 되돌아가기 처리에만 동적생성되는 검정배경 */
+.darkbg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    z-index: 1000;
+}
+
 #main_content{
+    position: relative;
     left: -100%;z-index: 1000;
     /* border: 1px solid #000; */
 }
 #projects{
-    padding: 110px 60px;
+    position: absolute;
+    top: 10px;
+    left: 160px;
     transform: rotate(-90deg);
     display: inline-block;
     /* border: 1px solid #444; */
@@ -105,12 +119,12 @@ a:link, a:visited, a:hover, a:active{
     position: relative;
     font-family: "Lexend Exa";
     font-weight: 400;
-    font-size: 82px;
+    font-size: 53px;
 }
 #projects > ul > li > h4 > a {
     color: transparent;
     -webkit-text-stroke: 1.5px #0c0c0e;
-    line-height: 150px;   
+    line-height: 100px;   
 }
 #projects  > ul > li > h4 > a:after {
     content: attr(data-link);

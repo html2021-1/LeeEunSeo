@@ -1,31 +1,42 @@
-$(document).ready(function () { 
-    // 100% 출력후 사라지기
-    var num = 0;
-    var timer = setInterval(function () {
-      if (num < 100) num++;
-      else {
-        clearInterval(timer);
+$(document).ready(function () {
+    
         $('#bg1').delay(1000).stop().fadeOut(1000);
-      }
-      $('#bg1 .count .num').text(num);
-    }, 15);
 
-    // showreel 다음 사라지기
-    $('#bg2').stop().fadeOut(1000).addClass('load');
+        
+        var mySwiper = new Swiper('.slide', {
+                // Optional parameters
+                direction: 'horizontal', //vertical
+                loop: true, //처음과 마지막에서 반복 롤링, 기본값 false
 
-    $(window).on('scroll' , function () {
-        var scrollY = $(this).scrollTop() + $(this).height();
-        console.log(scrollY);
+                // 하단에 위치한 페이지네이션: 동그라미, 숫자
+                pagination: {
+                    el: '.swiper-pagination',
+                    type: 'bullets', //기본값 bullets, fraction
+                    clickable: true,
+                },
 
-        $('.cnt').each(function(idx) {
-          console.log($(this).offset().top);
-          if (scrollY > $(this).offset().top) {
-            $(this).addClass('fade');
-          } else {
-            $(this).removeClass('fade');
-          }
-        });
-    });
+                // 접근성 추가 : accessibility
+                a11y: {
+                    prevSlideMessage: '이전 슬라이드 보기',
+                    nextSlideMessage: '다음 슬라이드 보기',
+                    firstSlideMessage: '첫번째 슬라이드', //첫번째 슬라이드에 있을때 이전 버튼에 대한 보조기기에 대한 메시지
+                    lastSlideMessage: '마지막 슬라이드',
+                },
 
-    $(window).trigger('scroll');
-});
+                // 자동실행
+                autoplay: {
+                    delay: 5000, //1초 1000
+                },
+            });
+
+            //★ 자동실행, 일시정지 컨트롤 버튼 추가
+            $('.slide .play_pause').on('click', function () {
+                if ($(this).hasClass('swiper-button-play')) {
+                    mySwiper.autoplay.start();
+                } else {
+                    mySwiper.autoplay.stop();
+                }
+                $(this).hide().siblings('button').show();
+            });
+        
+ });
